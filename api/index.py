@@ -9,10 +9,10 @@ from telegram.ext import Dispatcher, CommandHandler, MessageHandler, Filters
 import pymysql
 
 # Configuration for Chatbase and Telegram Bot
-MYSQL_SERVER_HOST = os.environ.get('DB_HOST')
-MYSQL_SERVER_USER = os.environ.get('DB_USER')
-MYSQL_SERVER_PASSWORD = os.environ.get('DB_PASSWORD')
-MYSQL_SERVER_DATABASE = os.environ.get('DB_DATABASE')
+MYSQL_SERVER_HOST = os.environ.get('MYSQL_SERVER_HOST')
+MYSQL_SERVER_USER = os.environ.get('MYSQL_SERVER_USER')
+MYSQL_SERVER_PASSWORD = os.environ.get('MYSQL_SERVER_PASSWORD')
+MYSQL_SERVER_DATABASE = os.environ.get('MYSQL_SERVER_DATABASE')
 CHATBASE_API_URL = 'https://www.chatbase.co/api/v1/chat'
 CHATBASE_API_KEY = os.environ.get('CHATBASE_API_KEY')
 CHATBASE_CHATBOT_ID = os.environ.get('CHATBASE_CHATBOT_ID')
