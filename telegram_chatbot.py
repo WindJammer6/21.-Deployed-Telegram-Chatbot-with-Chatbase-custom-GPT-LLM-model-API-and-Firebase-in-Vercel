@@ -85,15 +85,15 @@ conversation_history_and_other_data = {
 # //////////////////////////////////////////////////////////////////////////////////////////
 
 
-# Setting up the MySQL server:
-my_sql_relational_database_connection = pymysql.connect(
-    host="127.0.0.1",
-    user="root",
-    password="root",
-    database="urop_telegram_chatbot_db"
-)
+# # Setting up the MySQL server:
+# my_sql_relational_database_connection = pymysql.connect(
+#     host="127.0.0.1",
+#     user="root",
+#     password="root",
+#     database="urop_telegram_chatbot_db"
+# )
 
-cursor = my_sql_relational_database_connection.cursor()
+# cursor = my_sql_relational_database_connection.cursor()
 
 
 # //////////////////////////////////////////////////////////////////////////////////////////
@@ -151,16 +151,16 @@ def handle_message_python_function(update, context):
         # ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-        # Telegram Chatbot to MySQL server's Relational Database's table things
+        # # Telegram Chatbot to MySQL server's Relational Database's table things
 
-        # Inserting the student's prompt and telegram chatbot's response as a row in the MySQL server's Relational Database's 
-        # table using parameterized query.
-        telegram_chatbot_response = json_data['text']
-        query = "INSERT INTO telegram_chatbot_history (student_prompt, telegram_chatbot_response) VALUES (%s, %s)"
-        cursor.execute(query, (update.message.text, telegram_chatbot_response))
+        # # Inserting the student's prompt and telegram chatbot's response as a row in the MySQL server's Relational Database's 
+        # # table using parameterized query.
+        # telegram_chatbot_response = json_data['text']
+        # query = "INSERT INTO telegram_chatbot_history (student_prompt, telegram_chatbot_response) VALUES (%s, %s)"
+        # cursor.execute(query, (update.message.text, telegram_chatbot_response))
 
-        # Commit the transaction (idk why but this is just needed here to prevent errors)
-        my_sql_relational_database_connection.commit()
+        # # Commit the transaction (idk why but this is just needed here to prevent errors)
+        # my_sql_relational_database_connection.commit()
 
 
         # ////////////////////////////////////////////////////////////////////////////////////////////////////////
