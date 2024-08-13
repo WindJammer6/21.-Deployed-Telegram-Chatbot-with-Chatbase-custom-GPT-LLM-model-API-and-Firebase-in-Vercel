@@ -8,7 +8,7 @@ from telegram import Update, Bot
 from telegram.ext import Dispatcher, CommandHandler, MessageHandler, Filters
 import pymysql
 
-# Configuration for Chatbase and Telegram Bot
+# Configuration for Chatbase, Telegram Bot and PyMySQL
 # MYSQL_SERVER_HOST = os.environ.get('MYSQL_SERVER_HOST')
 # MYSQL_SERVER_USER = os.environ.get('MYSQL_SERVER_USER')
 # MYSQL_SERVER_PASSWORD = os.environ.get('MYSQL_SERVER_PASSWORD')
