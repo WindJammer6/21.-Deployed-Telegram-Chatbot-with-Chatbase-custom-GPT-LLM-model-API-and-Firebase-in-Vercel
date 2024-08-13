@@ -9,10 +9,10 @@ from telegram.ext import Dispatcher, CommandHandler, MessageHandler, Filters
 import pymysql
 
 # Configuration for Chatbase and Telegram Bot
-DB_HOST = os.environ.get('DB_HOST')
-DB_USER = os.environ.get('DB_USER')
-DB_PASSWORD = os.environ.get('DB_PASSWORD')
-DB_DATABASE = os.environ.get('DB_DATABASE')
+MYSQL_SERVER_HOST = os.environ.get('DB_HOST')
+MYSQL_SERVER_USER = os.environ.get('DB_USER')
+MYSQL_SERVER_PASSWORD = os.environ.get('DB_PASSWORD')
+MYSQL_SERVER_DATABASE = os.environ.get('DB_DATABASE')
 CHATBASE_API_URL = 'https://www.chatbase.co/api/v1/chat'
 CHATBASE_API_KEY = os.environ.get('CHATBASE_API_KEY')
 CHATBASE_CHATBOT_ID = os.environ.get('CHATBASE_CHATBOT_ID')
@@ -37,10 +37,10 @@ conversation_history = {
 
 # Setting up the MySQL server:
 my_sql_relational_database_connection = pymysql.connect(
-    host=os.getenv("DB_HOST"),
-    user=os.getenv("DB_USER"),
-    password=os.getenv("DB_PASSWORD"),
-    database=os.getenv("DB_DATABASE")
+    host=os.getenv("MYSQL_SERVER_HOST"),
+    user=os.getenv("MYSQL_SERVER_USER"),
+    password=os.getenv("MYSQL_SERVER_PASSWORD"),
+    database=os.getenv("MYSQL_SERVER_DATABASE")
 )
 
 cursor = my_sql_relational_database_connection.cursor()
