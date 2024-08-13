@@ -29,6 +29,7 @@
 import requests
 import json
 import telegram.ext     # (Note that the version of the telegram Python library is version 13.3)
+import pymysql
 
 
 # Chatbase custom GPT model API, but with Python's 'requests' and json' libraries as substitude, because
@@ -84,6 +85,20 @@ conversation_history_and_other_data = {
 # //////////////////////////////////////////////////////////////////////////////////////////
 
 
+# Setting up the MySQL server:
+my_sql_relational_database_connection = pymysql.connect(
+    host="127.0.0.1",
+    user="root",
+    password="root",
+    database="urop_telegram_chatbot_db"
+)
+
+cursor = my_sql_relational_database_connection.cursor()
+
+
+# //////////////////////////////////////////////////////////////////////////////////////////
+
+
 # Telegram Bot code with the 'telegram.ext' Telegram Bot API Python Framework 
 
 # This Telegram Bot has 2 commands:
@@ -131,6 +146,25 @@ def handle_message_python_function(update, context):
         update.message.reply_text(f"Chatbase custom GPT model: {json_data['text']}")
         # Appending the generated Chatbase custom GPT response to the 'conversation_history_and_other_data' 
         conversation_history_and_other_data["messages"].append({"content": json_data['text'], "role": "assistant"})
+
+
+        # ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        # Telegram Chatbot to MySQL server's Relational Database's table things
+
+        # Inserting the student's prompt and telegram chatbot's response as a row in the MySQL server's Relational Database's 
+        # table using parameterized query.
+        telegram_chatbot_response = json_data['text']
+        query = "INSERT INTO telegram_chatbot_history (student_prompt, telegram_chatbot_response) VALUES (%s, %s)"
+        cursor.execute(query, (update.message.text, telegram_chatbot_response))
+
+        # Commit the transaction (idk why but this is just needed here to prevent errors)
+        my_sql_relational_database_connection.commit()
+
+
+        # ////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
 
     # If there is an error when generating the Chatbase custom GPT response for some reason
     else:
