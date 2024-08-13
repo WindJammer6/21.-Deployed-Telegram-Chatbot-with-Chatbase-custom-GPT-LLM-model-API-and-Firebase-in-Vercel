@@ -9,10 +9,10 @@ from telegram.ext import Dispatcher, CommandHandler, MessageHandler, Filters
 import pymysql
 
 # Configuration for Chatbase and Telegram Bot
-MYSQL_SERVER_HOST = os.environ.get('MYSQL_SERVER_HOST')
-MYSQL_SERVER_USER = os.environ.get('MYSQL_SERVER_USER')
-MYSQL_SERVER_PASSWORD = os.environ.get('MYSQL_SERVER_PASSWORD')
-MYSQL_SERVER_DATABASE = os.environ.get('MYSQL_SERVER_DATABASE')
+# MYSQL_SERVER_HOST = os.environ.get('MYSQL_SERVER_HOST')
+# MYSQL_SERVER_USER = os.environ.get('MYSQL_SERVER_USER')
+# MYSQL_SERVER_PASSWORD = os.environ.get('MYSQL_SERVER_PASSWORD')
+# MYSQL_SERVER_DATABASE = os.environ.get('MYSQL_SERVER_DATABASE')
 CHATBASE_API_URL = 'https://www.chatbase.co/api/v1/chat'
 CHATBASE_API_KEY = os.environ.get('CHATBASE_API_KEY')
 CHATBASE_CHATBOT_ID = os.environ.get('CHATBASE_CHATBOT_ID')
@@ -36,12 +36,12 @@ conversation_history = {
 }
 
 # Setting up the MySQL server:
-my_sql_relational_database_connection = pymysql.connect(
-    host=os.getenv("MYSQL_SERVER_HOST"),
-    user=os.getenv("MYSQL_SERVER_USER"),
-    password=os.getenv("MYSQL_SERVER_PASSWORD"),
-    database=os.getenv("MYSQL_SERVER_DATABASE")
-)
+# my_sql_relational_database_connection = pymysql.connect(
+#     host=os.getenv("MYSQL_SERVER_HOST"),
+#     user=os.getenv("MYSQL_SERVER_USER"),
+#     password=os.getenv("MYSQL_SERVER_PASSWORD"),
+#     database=os.getenv("MYSQL_SERVER_DATABASE")
+# )
 
 cursor = my_sql_relational_database_connection.cursor()
 
@@ -104,16 +104,16 @@ def handle_message(update, context):
         # ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-        # Telegram Chatbot to MySQL server's Relational Database's table things
+        # # Telegram Chatbot to MySQL server's Relational Database's table things
 
-        # Inserting the student's prompt and telegram chatbot's response as a row in the MySQL server's Relational Database's 
-        # table using parameterized query.
-        telegram_chatbot_response = json_data['text']
-        query = "INSERT INTO telegram_chatbot_history (student_prompt, telegram_chatbot_response) VALUES (%s, %s)"
-        cursor.execute(query, (update.message.text, telegram_chatbot_response))
+        # # Inserting the student's prompt and telegram chatbot's response as a row in the MySQL server's Relational Database's 
+        # # table using parameterized query.
+        # telegram_chatbot_response = json_data['text']
+        # query = "INSERT INTO telegram_chatbot_history (student_prompt, telegram_chatbot_response) VALUES (%s, %s)"
+        # cursor.execute(query, (update.message.text, telegram_chatbot_response))
 
-        # Commit the transaction (idk why but this is just needed here to prevent errors)
-        my_sql_relational_database_connection.commit()
+        # # Commit the transaction (idk why but this is just needed here to prevent errors)
+        # my_sql_relational_database_connection.commit()
 
 
         # ////////////////////////////////////////////////////////////////////////////////////////////////////////
