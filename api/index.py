@@ -6,8 +6,13 @@ from fastapi import FastAPI, Request
 from pydantic import BaseModel
 from telegram import Update, Bot
 from telegram.ext import Dispatcher, CommandHandler, MessageHandler, Filters
+import pymysql
 
 # Configuration for Chatbase and Telegram Bot
+DB_HOST = os.environ.get('DB_HOST')
+DB_USER = os.environ.get('DB_USER')
+DB_PASSWORD = os.environ.get('DB_PASSWORD')
+DB_DATABASE = os.environ.get('DB_DATABASE')
 CHATBASE_API_URL = 'https://www.chatbase.co/api/v1/chat'
 CHATBASE_API_KEY = os.environ.get('CHATBASE_API_KEY')
 CHATBASE_CHATBOT_ID = os.environ.get('CHATBASE_CHATBOT_ID')
@@ -29,6 +34,16 @@ conversation_history = {
     "stream": False,
     "temperature": 0
 }
+
+# Setting up the MySQL server:
+my_sql_relational_database_connection = pymysql.connect(
+    host=os.getenv("DB_HOST"),
+    user=os.getenv("DB_USER"),
+    password=os.getenv("DB_PASSWORD"),
+    database=os.getenv("DB_DATABASE")
+)
+
+cursor = my_sql_relational_database_connection.cursor()
 
 # Pydantic model for validating Telegram webhook data
 class TelegramWebhook(BaseModel):
@@ -84,6 +99,26 @@ def handle_message(update, context):
         chatbase_response = json_data['text']
         update.message.reply_text(f"Chatbase custom GPT model: {chatbase_response}")
         conversation_history["messages"].append({"content": chatbase_response, "role": "assistant"})
+
+        
+        # ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        # Telegram Chatbot to MySQL server's Relational Database's table things
+
+        # Inserting the student's prompt and telegram chatbot's response as a row in the MySQL server's Relational Database's 
+        # table using parameterized query.
+        telegram_chatbot_response = json_data['text']
+        query = "INSERT INTO telegram_chatbot_history (student_prompt, telegram_chatbot_response) VALUES (%s, %s)"
+        cursor.execute(query, (update.message.text, telegram_chatbot_response))
+
+        # Commit the transaction (idk why but this is just needed here to prevent errors)
+        my_sql_relational_database_connection.commit()
+
+
+        # ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    
     else:
         update.message.reply_text(f"Error: {json_data.get('message', 'An error occurred')}")
 
