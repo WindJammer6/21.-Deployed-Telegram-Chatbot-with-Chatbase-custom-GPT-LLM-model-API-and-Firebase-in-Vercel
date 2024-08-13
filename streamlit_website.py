@@ -158,7 +158,7 @@ elif st.session_state.page == 'Database':
 
     # Main content
     st.subheader("Assignments")
-    for i in range(len(database_data)):
+    for i in database_data:
         st.write("**Student Prompt**")
         st.write(f"{database_data[i]['student_prompt']}")
         st.write("**Telegram Chatbot Response**")
@@ -172,4 +172,3 @@ elif st.session_state.page == 'Database':
     # Back to Homepage button
     if st.button("Back to Homepage"):
         st.write("Back to homepage button clicked")
-
