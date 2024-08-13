@@ -28,14 +28,7 @@
 
 import requests
 import json
-import telegram
-from telegram.ext import Dispatcher, CommandHandler, MessageHandler, Filters
-from flask import Flask, request, jsonify
 import telegram.ext     # (Note that the version of the telegram Python library is version 13.3)
-
-
-# Initialize Flask app for webhook
-app = Flask(__name__)
 
 
 # Chatbase custom GPT model API, but with Python's 'requests' and json' libraries as substitude, because
@@ -52,7 +45,7 @@ url = 'https://www.chatbase.co/api/v1/chat'
 # 4. Find Your API Key: Within the developer or API settings, you should find your API key, labeled as 
 #    "API Key".
 headers = {
-    'Authorization': 'Bearer 3c7b798b-c5fe-41a7-bdeb-f5d0b6f8536e',
+    'Authorization': 'Bearer <API KEY HERE>',
     'Content-Type': 'application/json'
 }
 
@@ -71,7 +64,7 @@ headers = {
 # 6. Copy the Bot ID: Once you find the Bot ID, you can copy it for use in your applications or integrations.
 conversation_history_and_other_data = {
     "messages": [],
-    "chatbotId": "wGS8ehg-39TolweihWY3w",
+    "chatbotId": "<CHATBOT ID HERE>",
     "stream": False,
     "temperature": 0
 }
@@ -88,7 +81,7 @@ conversation_history_and_other_data = {
     # }
 
 
-#  //////////////////////////////////////////////////////////////////////////////////////////
+# //////////////////////////////////////////////////////////////////////////////////////////
 
 
 # Telegram Bot code with the 'telegram.ext' Telegram Bot API Python Framework 
@@ -98,9 +91,9 @@ conversation_history_and_other_data = {
 # - /help: prints out a directory of the available commands
 token_of_telegram_bot = "7045977515:AAGGa78vjXmfTDzMPoCAkm2NsGpiYOi5WzI"
 
-# Set up dispatcher to handle incoming messages
-bot = telegram.Bot(token=token_of_telegram_bot)
-dispatcher = Dispatcher(bot, None, use_context=True)
+updater = telegram.ext.Updater(token_of_telegram_bot, use_context=True)
+
+dispatcher = updater.dispatcher
 
 def start_python_function(update, context):
     update.message.reply_text("Hello, welcome to my telegram bot integrated with Chatbase custom GPT model API! (From Goh Jet Wei (WindJammer6))")
@@ -155,27 +148,10 @@ def handle_message_python_function(update, context):
 
 
 # More Telegram Bot code with the 'telegram.ext' Telegram Bot API Python Framework 
-dispatcher.add_handler(CommandHandler('start', start_python_function))
-dispatcher.add_handler(CommandHandler('help', help_python_function))
-dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, handle_message_python_function))
+dispatcher.add_handler(telegram.ext.CommandHandler('start', start_python_function))
+dispatcher.add_handler(telegram.ext.CommandHandler('help', help_python_function))
 
+dispatcher.add_handler(telegram.ext.MessageHandler(telegram.ext.Filters.text, handle_message_python_function))
 
-# //////////////////////////////////////////////////////////////////////////////////////////
-
-
-# Webhook Functions:
-# Set up your webhook endpoint that Telegram will use to send messages to your bot.
-@app.route('/webhook', methods=['POST'])
-def webhook():
-    # Parse the incoming message as a Telegram update
-    update = telegram.Update.de_json(request.get_json(), bot)
-    dispatcher.process_update(update)
-    return "ok", 200
-
-
-# //////////////////////////////////////////////////////////////////////////////////////////
-
-
-# Run the Flask App
-if __name__ == "__main__":
-    app.run(port=5000)
+updater.start_polling()
+updater.idle()
