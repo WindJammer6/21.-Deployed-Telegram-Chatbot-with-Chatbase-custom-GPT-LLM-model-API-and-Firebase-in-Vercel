@@ -1,4 +1,4 @@
 fastapi==0.95.2
-pydantic==1.8.2
+pydantic==1.10.9  # or another compatible 1.x version
 python-telegram-bot==13.3
 requests==2.28.2
