@@ -45,7 +45,7 @@ url = 'https://www.chatbase.co/api/v1/chat'
 # 4. Find Your API Key: Within the developer or API settings, you should find your API key, labeled as 
 #    "API Key".
 headers = {
-    'Authorization': 'Bearer <API KEY HERE>',
+    'Authorization': 'Bearer 3c7b798b-c5fe-41a7-bdeb-f5d0b6f8536e',
     'Content-Type': 'application/json'
 }
 
@@ -64,7 +64,7 @@ headers = {
 # 6. Copy the Bot ID: Once you find the Bot ID, you can copy it for use in your applications or integrations.
 conversation_history_and_other_data = {
     "messages": [],
-    "chatbotId": "<CHATBOT ID HERE>",
+    "chatbotId": "wGS8ehg-39TolweihWY3w",
     "stream": False,
     "temperature": 0
 }
