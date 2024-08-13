@@ -1,3 +1,5 @@
+# This file works for the Telegram Chatbot with the initially used PyMySQL server's database, rather than the Firebase's Realtime database
+
 import os
 import json
 import requests
