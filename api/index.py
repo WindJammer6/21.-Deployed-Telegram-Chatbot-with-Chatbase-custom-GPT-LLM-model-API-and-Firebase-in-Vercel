@@ -11,7 +11,7 @@ from telegram.ext import Dispatcher, CommandHandler, MessageHandler, Filters
 CHATBASE_API_URL = 'https://www.chatbase.co/api/v1/chat'
 CHATBASE_API_KEY = os.environ.get('CHATBASE_API_KEY')
 CHATBASE_CHATBOT_ID = os.environ.get('CHATBASE_CHATBOT_ID')
-TELEGRAM_TOKEN = os.environ.get('TELEGRAM_TOKEN')
+TELEGRAM_TOKEN = os.environ.get('7045977515:AAGGa78vjXmfTDzMPoCAkm2NsGpiYOi5WzI')
 
 # FastAPI app instance
 app = FastAPI()
@@ -46,7 +46,7 @@ class TelegramWebhook(BaseModel):
     poll_answer: Optional[dict]
 
 # Create a Telegram bot instance
-bot = Bot(token=7045977515:AAGGa78vjXmfTDzMPoCAkm2NsGpiYOi5WzI)
+bot = Bot(token=TELEGRAM_TOKEN)
 
 # Initialize the dispatcher
 dispatcher = Dispatcher(bot, None, workers=4)
