@@ -12,3 +12,4 @@ streamlit_autorefresh==1.0.1
 
 # For both the Telegram Chatbot and Streamlit website:
 pymysql==1.1.1
+firebase_admin==6.2.0
