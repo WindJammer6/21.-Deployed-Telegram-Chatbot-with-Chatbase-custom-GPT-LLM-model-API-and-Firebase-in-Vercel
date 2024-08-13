@@ -145,7 +145,16 @@ elif st.session_state.page == 'Database':
 
     # Read data from the Realtime Database from Firebase
     database_data = reference_to_database.get()
-    print(database_data)
+
+    print("Database Data:", database_data)
+
+    # Check if the Firebase Realtime database is None or empty
+    if database_data is None:
+        st.write("No data found in the Firebase Realtime Database.")
+    else:
+        # Converting the Firebase Realtime Database to a list of dictionaries
+        if isinstance(database_data, dict):
+            database_data = list(database_data.values())
 
     # Main content
     st.subheader("Assignments")
@@ -163,3 +172,4 @@ elif st.session_state.page == 'Database':
     # Back to Homepage button
     if st.button("Back to Homepage"):
         st.write("Back to homepage button clicked")
+
