@@ -53,5 +53,55 @@ if TELEGRAM_TOKEN is None:
 bot = Bot(token=TELEGRAM_TOKEN)  # Use the environment variable
 
 # Initialize the dispatcher
-dispatcher = Dispat
+dispatcher = Dispatcher(bot, None, workers=4)
+
+# Command handler for /start command
+def start(update, context):
+    update.message.reply_text("Hello, welcome to my telegram bot integrated with Chatbase custom GPT model API!")
+
+# Command handler for /help command
+def help_command(update, context):
+    update.message.reply_text(
+        """
+        Table of contents of the available commands in this telegram bot:
+        /start -> Replies with a welcome message
+        /help -> This help message
+        
+        Type anything else to get a response from the Chatbase custom GPT model!
+        """
+    )
+
+# Handler for processing incoming messages
+def handle_message(update, context):
+    user_message = update.message.text
+    conversation_history["messages"].append({"content": user_message, "role": "user"})
+
+    # Make API call to Chatbase
+    response = requests.post(CHATBASE_API_URL, headers=headers, data=json.dumps(conversation_history))
+    json_data = response.json()
+
+    if response.status_code == 200:
+        chatbase_response = json_data['text']
+        update.message.reply_text(f"Chatbase custom GPT model: {chatbase_response}")
+        conversation_history["messages"].append({"content": chatbase_response, "role": "assistant"})
+    else:
+        update.message.reply_text(f"Error: {json_data.get('message', 'An error occurred')}")
+
+# Register handlers
+dispatcher.add_handler(CommandHandler('start', start))
+dispatcher.add_handler(CommandHandler('help', help_command))
+dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, handle_message))
+
+@app.post("/webhook")
+async def webhook(request: Request):
+    # Parse the incoming update
+    webhook_data = await request.json()
+    update = Update.de_json(webhook_data, bot)
+    dispatcher.process_update(update)
+    return {"message": "ok"}
+
+@app.get("/")
+def index():
+    return {"message": "Hello World"}
+
 
