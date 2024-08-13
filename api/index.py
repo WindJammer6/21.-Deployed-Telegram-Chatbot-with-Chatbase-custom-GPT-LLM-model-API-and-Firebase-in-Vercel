@@ -46,8 +46,3 @@ async def webhook(webhook_data: TelegramWebhook):
 @app.get("/")
 def index():
     return {"message": "Hello World"}
-
-
-@app.get("/")
-def index():
-    return {"message": "Hello World"}
