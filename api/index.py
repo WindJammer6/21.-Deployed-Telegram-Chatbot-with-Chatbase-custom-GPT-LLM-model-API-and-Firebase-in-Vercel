@@ -1,20 +1,15 @@
 import os
 from typing import Optional
-
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
-
 from telegram import Update, Bot
-from telegram.ext import Dispatcher, MessageHandler, Filters, CommandHandler
+from telegram.ext import Dispatcher, CommandHandler
+from fastapi.responses import JSONResponse
 
 TOKEN = os.environ.get("TOKEN")
-
 app = FastAPI()
 
 class TelegramWebhook(BaseModel):
-    '''
-    Telegram Webhook Model using Pydantic for request body validation
-    '''
     update_id: int
     message: Optional[dict]
     edited_message: Optional[dict]
@@ -36,26 +31,22 @@ def register_handlers(dispatcher):
     dispatcher.add_handler(start_handler)
 
 @app.post("/webhook")
-def webhook(webhook_data: TelegramWebhook):
-    '''
-    Telegram Webhook
-    '''
-    # Method 1
-    bot = Bot(token=TOKEN)
-    update = Update.de_json(webhook_data.__dict__, bot) # convert the Telegram Webhook class to dictionary using __dict__ dunder method
-    dispatcher = Dispatcher(bot, None, workers=4)
-    register_handlers(dispatcher)
+async def webhook(webhook_data: TelegramWebhook):
+    try:
+        bot = Bot(token=TOKEN)
+        update = Update.de_json(webhook_data.dict(), bot)  # convert the Telegram Webhook class to dictionary using .dict() method
+        dispatcher = Dispatcher(bot, None, workers=4)
+        register_handlers(dispatcher)
+        dispatcher.process_update(update)
+        return {"message": "ok"}
+    except Exception as e:
+        logging.error(f"Error processing webhook: {e}")
+        return JSONResponse(status_code=500, content={"message": "Internal Server Error"})
 
-    # handle webhook request
-    dispatcher.process_update(update)
+@app.get("/")
+def index():
+    return {"message": "Hello World"}
 
-    # Method 2
-    # you can just handle the webhook request here without using python-telegram-bot
-    # if webhook_data.message:
-    #     if webhook_data.message.text == '/start':
-    #         send_message(webhook_data.message.chat.id, 'Hello World')
-
-    return {"message": "ok"}
 
 @app.get("/")
 def index():
