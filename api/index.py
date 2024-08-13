@@ -46,7 +46,7 @@ class TelegramWebhook(BaseModel):
     poll_answer: Optional[dict]
 
 # Create a Telegram bot instance
-bot = Bot(token=TOKEN)
+bot = Bot(token=7045977515:AAGGa78vjXmfTDzMPoCAkm2NsGpiYOi5WzI)
 
 # Initialize the dispatcher
 dispatcher = Dispatcher(bot, None, workers=4)
