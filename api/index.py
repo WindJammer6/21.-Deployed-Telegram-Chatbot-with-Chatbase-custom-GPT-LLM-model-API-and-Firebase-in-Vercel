@@ -43,7 +43,7 @@ conversation_history = {
 #     database=os.getenv("MYSQL_SERVER_DATABASE")
 # )
 
-cursor = my_sql_relational_database_connection.cursor()
+# cursor = my_sql_relational_database_connection.cursor()
 
 # Pydantic model for validating Telegram webhook data
 class TelegramWebhook(BaseModel):
