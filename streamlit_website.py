@@ -156,14 +156,14 @@ elif st.session_state.page == 'Database':
         if isinstance(database_data, dict):
             database_data = list(database_data.values())
 
-    # Main content
-    st.subheader("Assignments")
-    for i in database_data:
-        st.write("**Student Prompt**")
-        st.write(f"{database_data[i]['student_prompt']}")
-        st.write("**Telegram Chatbot Response**")
-        st.write(f"{database_data[i]['telegram_chatbot_response']}")
-        st.write("---")
+        # Main content
+        st.subheader("Assignments")
+        for i in range(len(database_data)):
+            st.write("**Student Prompt**")
+            st.write(f"{database_data[i]['student_prompt']}")
+            st.write("**Telegram Chatbot Response**")
+            st.write(f"{database_data[i]['telegram_chatbot_response']}")
+            st.write("---")
 
     
     # ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -172,3 +172,4 @@ elif st.session_state.page == 'Database':
     # Back to Homepage button
     if st.button("Back to Homepage"):
         st.write("Back to homepage button clicked")
+
