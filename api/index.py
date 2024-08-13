@@ -57,7 +57,7 @@ dispatcher = Dispatcher(bot, None, workers=4)
 
 # Command handler for /start command
 def start(update, context):
-    update.message.reply_text("Hello, welcome to my telegram bot integrated with Chatbase custom GPT model API! (From Goh Jet Wei (WindJammer6))"")
+    update.message.reply_text("Hello, welcome to my telegram bot integrated with Chatbase custom GPT model API! (From Goh Jet Wei (WindJammer6))")
 
 # Command handler for /help command
 def help_command(update, context):
