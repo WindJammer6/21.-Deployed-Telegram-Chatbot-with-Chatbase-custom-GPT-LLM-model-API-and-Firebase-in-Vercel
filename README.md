@@ -1,4 +1,4 @@
-# 21.-Telegram-Chatbot-integrated-with-Chatbase-custom-GPT-LLM-model-API-and-Firebase <img src="https://logos-world.net/wp-content/uploads/2021/03/Telegram-Logo.png" width="50" height="50"> ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=openai) ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=firebase)
+# 21.-Telegram-Chatbot-integrated-with-Chatbase-custom-GPT-LLM-model-API-and-Firebase <img src="https://logodownload.org/wp-content/uploads/2017/11/telegram-logo-8.png" width="50" height="50"> ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=chatgpt) ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=firebase)
 
 This a project done as part of my University's Undergraduate Research Opportunities Programme (UROP), titled 'UROP: Telegram chatbot for novice programmers to learn coding', supervised and initiated by Professor Oka Kurniawan ([here](https://github.com/kurniawano) is his Github account), spanding 8 months of (on-off) work.
 
