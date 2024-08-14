@@ -34,24 +34,32 @@ The approach is split into 2 components:
 + https://console.firebase.google.com/u/0/project/urop-telegram-chatbot/database/urop-telegram-chatbot-default-rtdb/data (Direct link to this project's Firebase (API) Realtime database, but only accessible by me through email)  
 
 ## Table of Contents
-Here is a directory to explain the purpose of each file in this repository in the creation of the deployed, budget full stack website in Python with Streamlit (Python Framework) and Firebase (API)'s Realtime Database:
+Here is a directory to explain the purpose of each file in this repository that is required in the creation of the Telegram Chatbot integrated with Chatbase custom GPT LLM model API and Firebase (API)'s Realtime Database:
 1. '.streamlit' folder  
    i. 'config.toml' file
 2. 'README.md' file
 3. 'firebase_key.json' file
-4. 'karaoke_poster.jpg' file
-5. 'karaoke_singer_class.py' file
-6. 'queue_data_structure_class.py' file
-7. 'register.py' file
-8. 'requirements.txt' file
-9. 'song_queue.py' file
+4. 'karaoke_singer_class.py' file
+5. 'requirements.txt' file
+
+Additional files that are not part of the creation of the Telegram Chatbot integrated with Chatbase custom GPT LLM model API and Firebase (API)'s Realtime Database, but includes the past iterations/versions/prototypes of the Telegram Chatbot integrated with Chatbase custom GPT LLM model API and Firebase (API)'s Realtime Database:
+1.
+
+
+Additional files that are not part of the creation of the Telegram Chatbot integrated with Chatbase custom GPT LLM model API and Firebase (API)'s Realtime Database, but includes my learning journey of some of the required technology being used in this project that I was not familiar with:
+1.
+
 
 <br>
 
-### Development
-Due to my lack of knowledge in some of the required technology being used in this project, I had to first learn them, which includes:
+### Past iterations/versions/prototypes of the Telegram Chatbot integrated with Chatbase custom GPT LLM model API and Firebase (API)'s Realtime Database
+Due to my lack of knowledge in some of the required technology being used in the Telegram Chatbot integrated with Chatbase custom GPT LLM model API and Firebase (API)'s Realtime Database, I had to first learn them, which includes:
 - Building a Telegram Bot in Python (using the 'telegram.ext' (Python Framework) Telegram Bot API)
-- Using Chatbase API 
+- Using Chatbase API
+
+<br>
+
+### My learning journey of some of the required technology being used in this project that I was not familiar with
 
 
 
