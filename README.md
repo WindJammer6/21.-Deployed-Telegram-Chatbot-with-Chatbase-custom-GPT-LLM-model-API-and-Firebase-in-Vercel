@@ -34,13 +34,14 @@ The approach is split into 2 components:
 + https://console.firebase.google.com/u/0/project/urop-telegram-chatbot/database/urop-telegram-chatbot-default-rtdb/data (Direct link to this project's Firebase (API) Realtime database, but only accessible by me through email)  
 
 ## Table of Contents
-Here is a directory to explain the purpose of each file in this repository that is required in the creation of the Telegram Chatbot integrated with Chatbase custom GPT LLM model API and Firebase (API)'s Realtime Database:
+Here is a directory to explain the purpose of each file in this repository that is required in the creation of the Telegram Chatbot integrated with Chatbase custom GPT LLM model API and Firebase (API)'s Realtime Database, as well as how to deploy a Telegram Bot on Vercel:
 1. '.streamlit' folder  
    i. 'config.toml' file
 2. 'README.md' file
 3. 'firebase_key.json' file
 4. 'karaoke_singer_class.py' file
 5. 'requirements.txt' file
+6. How to deploy a Telegram Bot on Vercel? (can refer to the Unity Github repo on how I format the deployment documentation)
 
 Additional files that are not part of the creation of the Telegram Chatbot integrated with Chatbase custom GPT LLM model API and Firebase (API)'s Realtime Database, but includes the past iterations/versions/prototypes of the Telegram Chatbot integrated with Chatbase custom GPT LLM model API and Firebase (API)'s Realtime Database:
 1.
