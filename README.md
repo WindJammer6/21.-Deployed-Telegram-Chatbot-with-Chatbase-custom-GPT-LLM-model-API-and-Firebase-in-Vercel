@@ -65,6 +65,9 @@ Here is a directory to explain the purpose of each file in this repository:
 <br>
 
 ### 2. Past iterations/versions/prototypes of the Telegram Chatbot integrated with Chatbase custom GPT LLM model API and Firebase (API)'s Realtime Database
+Telegram_bot.py is not required and is just merely for local running as long polling. (refer to the deployment process)
+
+Wanted to
 
 <br>
 
@@ -84,10 +87,25 @@ Source: https://www.techopedia.com/definition/chatbase (Techopedia)
 *What is [Vercel](https://vercel.com/)?*
 Fromn the official [Vercel](https://vercel.com/) website: 'Vercel lets teams deploy and run the user facing parts of their applications easily, separately from their backend.' 
 
-Honestly, the 'Deploy telegram bot on Vercel(Python)' website blog by Chapi Menge (link: https://blog.chapimenge.com/blog/programming/deploying-on-vercel/) explains clearly step by step on how to deploy a Telegram Bot on [Vercel](https://vercel.com/). There are various platforms where you can deploy your Telegram Bot, (e.g. [Heroku](https://heroku.com/), [Back4app](https://containers.back4app.com/), [Amazon Web Services](https://aws.amazon.com/) etc.) but deploying on [Vercel](https://vercel.com/) worked for me. Once deployed correctly, rather than getting a link for your website, the Telegram Bot should start to work as expected. You will also
+Honestly, the 'Deploy telegram bot on Vercel(Python)' website blog by Chapi Menge (link: https://blog.chapimenge.com/blog/programming/deploying-on-vercel/) explains clearly step by step on how to deploy a Telegram Bot, built in Python on [Vercel](https://vercel.com/) (I believe that if you build the Telegram Bot using other programming languages such as JavaScript, the deployment process on [Vercel](https://vercel.com/) and the required code in the files will differ). There are various platforms where you can deploy your Telegram Bot, (e.g. [Heroku](https://heroku.com/), [Back4app](https://containers.back4app.com/), [Amazon Web Services](https://aws.amazon.com/) etc.) but deploying on [Vercel](https://vercel.com/) worked for me. Once deployed correctly, rather than getting a link for your website, the Telegram Bot should start to work as expected. You will also
 
-I did run into some difficulties deploying the Telegram Bot on Vercel, even while following the website blog by Chapi Menge:
+I did run into quite a few difficulties deploying the Telegram Bot on Vercel, even while following the website blog by Chapi Menge due to my lack of knowledge in deploying on Vercel:
+- My confusion on what is a Webhook and what is Long Polling:
+  - What is a Webhook?
+    A webhook is a way for an application to send real-time data to another system when certain events occur.
 
+  - What is Long Polling?
+    Long Polling is a way to retrieve updates from a server in real-time without the need for a continuous connection. Here’s how it works:
+
+Try refine these definitions!!!
+
+  - Here is how a webhook works in the case of deploying this Telegram Bot on [Vercel](https://vercel.com/), 
+
+
+Since originallly as taught in the telegram bot tutorials it uses long pollin gby default. So when deploying thee telegram bot in Vercel I need to use Webhooks instead. So I just use ChatGPT to help me convert my Telegram Bot using long pollin got use webhook sinsgtead directly (hence I technically have no idea how to convert to the webhook thing myself in the deployment process (using the python libraries FastAPI, Pydantic, oos, etc.) (that you will see in the 'index.py' file), I only know how to do the long polling in telegram bot thing, which only works locally, but not in deployment (globally) 
+      
+
+So where is the actual file? Its in the index.py as webhook...
 
 Here is the link of my 'itch.io' account of the username:, 'WindJammer6' - https://windjammer6.itch.io/.
 Here is the link of this deployed 2D Unity game on 'itch.io' - https://windjammer6.itch.io/2d-unity-game-by-windjammer6
