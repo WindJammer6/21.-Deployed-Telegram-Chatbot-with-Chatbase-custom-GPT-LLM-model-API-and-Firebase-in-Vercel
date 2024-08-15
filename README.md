@@ -89,13 +89,15 @@ Fromn the official [Vercel](https://vercel.com/) website: 'Vercel lets teams dep
 
 Honestly, the 'Deploy telegram bot on Vercel(Python)' website blog by Chapi Menge (link: https://blog.chapimenge.com/blog/programming/deploying-on-vercel/) explains clearly step by step on how to deploy a Telegram Bot, built in Python on [Vercel](https://vercel.com/) (I believe that if you build the Telegram Bot using other programming languages such as JavaScript, the deployment process on [Vercel](https://vercel.com/) and the required code in the files will differ). There are various platforms where you can deploy your Telegram Bot, (e.g. [Heroku](https://heroku.com/), [Back4app](https://containers.back4app.com/), [Amazon Web Services](https://aws.amazon.com/) etc.) but deploying on [Vercel](https://vercel.com/) worked for me. Once deployed correctly, rather than getting a link for your website, the Telegram Bot should start to work as expected. You will also
 
-**I did run into quite a few difficulties deploying the Telegram Bot on Vercel, even while following the website blog by Chapi Menge due to my lack of knowledge in deploying on [Vercel](https://vercel.com/). Here are some of the background knowledge required to deploying on [Vercel](https://vercel.com/):**
+**I did run into quite a few difficulties deploying the Telegram Bot on Vercel, which I spent a great deal of time trying to debug, even while following the website blog by Chapi Menge due to my lack of knowledge in deploying on [Vercel](https://vercel.com/), and that the website blog by Chapi Menge is not the clearest. Here are some of the background knowledge required to deploying on [Vercel](https://vercel.com/):**
 - My confusion on what is a Webhook and what is Long Polling:
   - What is a Webhook?
-    A webhook is a way for an application to send real-time data to another system when triggered by certain events. It only sends HTTP requests to the system when triggered by a (certain) event.
+    A webhook is a way for an application to send real-time data to another system when triggered by certain events. It only sends HTTP requests to the system when triggered by a (certain) event. (hence more efficient than Long Polling)
 
     What is Long Polling?
-    Long Polling is a way for an application to send real-time data to another system by maintaining a constant connection to constantly check for updates between the application and the system. It constantly sends HTTP requests to the system.
+    Long Polling is a way for an application to send real-time data to another system by maintaining a constant connection to constantly check for updates between the application and the system. It constantly sends HTTP requests to the system. (hence less efficient than Long Polling)
+
+    However, for [Vercel](https://vercel.com/), it only works with applications that uses Webhooks instead of Long Polling due to its architecture its just like that). And unfortunately, when I first built the Telegram Bot locally on my laptop (see the first iteration in the prototype folder?), I used Long Polling for my Telegram Bot instead, and hence caused my Telegram Bot to be unable to be deployed on [Vercel](https://vercel.com/), which the website blog by Chapi Menge did not warn very clearly and took me a great deal of time trying to debug. This is when I realised 
 
     For the case of deploying the Telegram Bot on [Vercel](https://vercel.com/) for this project,
     
