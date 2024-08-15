@@ -120,9 +120,9 @@ I chose Vercel also since its the only deployment platform that didnt require me
     Environment variables are key-value pairs that are stored outside the application's code and are used by the operating system and applications to configure behavior. These variables are accessible to the application at runtime and are typically used to store configuration settings and important information such as:
     - API keys
     - Database connection strings
-    - Credentials (e.g., username/password)
-    - Paths (e.g., file system locations)
-    - Application modes (e.g., development, production)
+    - Credentials (e.g. username/password)
+    - Paths (e.g. file system locations)
+    - Application modes (e.g. development, production)
    
     In this Telegram Bot, variables that are used as Environment variables include those containing the value/data/information of the Telegram Bot Token, Chatbase API key, Firebase Realtime Database URL, etc. You can see the Environment variables being used in the Telegram Bot's main code in the 'index.py' file here:
     ```python
