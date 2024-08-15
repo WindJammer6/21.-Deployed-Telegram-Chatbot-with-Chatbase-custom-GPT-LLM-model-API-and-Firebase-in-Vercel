@@ -134,6 +134,9 @@ Source: https://www.techopedia.com/definition/chatbase (Techopedia)
 <br>
 
 ## 4. Deployment Process of the Telegram Chatbot integrated with Chatbase custom GPT LLM model API and Firebase (API)'s Realtime Database (or any other application) on Vercel <a name = "deploymentoftelegramchatbot"></a> ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=vercel)
+
+RMB ONCE ALL THE FIRST ITERATION OF THE TELEGRAM BOT IS ADDED THEN ADD A LINK TO IT IN THE DESCRIPTION IN THIS SECTION!!! FOR THE FIRST ITERATION OF THE TELEGRAM BOT
+
 *What is [Vercel](https://vercel.com/)?*  
 From the official [Vercel](https://vercel.com/) website: 'Vercel lets teams deploy and run the user facing parts of their applications easily, separately from their backend.' 
 
