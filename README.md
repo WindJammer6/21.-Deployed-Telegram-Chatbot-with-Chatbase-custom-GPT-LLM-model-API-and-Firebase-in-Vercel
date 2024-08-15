@@ -28,7 +28,7 @@ The approach to developing this UROP project is split into 2 components:
     2. the second 'Database' page where it displays the incoming texts/prompts from students and the Chatbase custom GPT LLM model's responses for the human instructors to evaluate the students' incoming texts/prompts (which the data is retrieved from the database)
 
 *This project's deployed Telegram Bot, Chatbase custom GPT LLM model, Streamlit (Python Framework)'s Website Application and Firebase (API) links:*
-+ https://t.me/test_12171_bot (Telegram Bot named 'Telegram_Chatbot_integrated_with_Chatbase_GPT_LLM_model_API_by_WindJammer6') 
++ https://t.me/test_12171_bot (Telegram Bot named 'Telegram_Chatbot_integrated_with_Chatbase_GPT_model_API') 
 + https://www.chatbase.co/dashboard/goh-jet-wei-team-91859289/chatbot/wGS8ehg-39TolweihWY3w (Direct link to this project's Chatbase custom GPT LLM model, but only accessible by me through email)
 + https://22-app-website-for-telegram-chatbot-hezsqgseuns85wxaqsdfpd.streamlit.app/ (Streamlit (Python Framework)'s Website Application)
 + https://console.firebase.google.com/u/0/project/urop-telegram-chatbot/database/urop-telegram-chatbot-default-rtdb/data (Direct link to this project's Firebase (API) Realtime database, but only accessible by me through email)
@@ -171,7 +171,7 @@ I chose Vercel also since its the only deployment platform that didnt require me
       
 
 Here is the link of my [Vercel](https://vercel.com/) account of the username: 'WindJammer6' - https://vercel.com/windjammer6s-projects.
-Here is the link of this deployed Telegram Bot (named 'Telegram_Chatbot_integrated_with_Chatbase_GPT_LLM_model_API_by_WindJammer6') using [Vercel](https://vercel.com/) - https://t.me/test_12171_bot
+Here is the link of this deployed Telegram Bot (named 'Telegram_Chatbot_integrated_with_Chatbase_GPT_model_API') using [Vercel](https://vercel.com/) - https://t.me/test_12171_bot
 
 Source(s):
 https://vercel.com/ (Vercel)
