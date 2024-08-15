@@ -101,9 +101,12 @@ I chose Vercel also since its the only deployment platform that didnt require me
     What is Long Polling?
     Long Polling is a way for an application to send real-time data to another system by maintaining a constant connection to constantly check for updates between the application and the system. It constantly sends HTTP requests to the system. (hence less efficient than Long Polling)
 
-    However, for [Vercel](https://vercel.com/), it only works with applications that uses Webhooks instead of Long Polling due to its architecture its just like that). And unfortunately, when I first built the Telegram Bot locally on my laptop (see the first iteration in the prototype folder?), the code I used to build the Telegram Bot was using Long Polling instead, and hence caused my Telegram Bot to be unable to be deployed on [Vercel](https://vercel.com/), which the website blog by Chapi Menge did not warn very clearly and took me a great deal of time trying to debug. This is when I realised I need to change the code of the Telegram Bot to use Webhooks instead!
-
-    (You can tell that I used Long Polling for the first telegram bot iteration from the code in the telegram bot 'start_polling()' (might have other code that points to this evidence too)
+    However, for [Vercel](https://vercel.com/), it only works with applications that uses Webhooks instead of Long Polling due to its architecture its just like that). And unfortunately, when I first built the Telegram Bot locally on my laptop (see the first iteration in the prototype folder?), the code I used to build the Telegram Bot was using Long Polling instead. You can tell that the Telegram Bot is using Long Polling from the following code in the first iteration of the Telegram Bot:
+    ```
+    updater.start_polling()
+    updater.idle()
+    ```
+    and hence caused my Telegram Bot to be unable to be deployed on [Vercel](https://vercel.com/), which the website blog by Chapi Menge did not warn very clearly and took me a great deal of time trying to debug. This is when I realised I need to change the code of the Telegram Bot to use Webhooks instead!
 
   - What is the 'index.py' file in the 'api' folder for? (that is mentioned in the website blog by Chapi Menge)
     It was unfortunately not mentioned very clearly in the website blog by Chapi Menge, but 'index.py' (and the name has to be 'index.py' for some reason and not anything else) basically is supposed to hold the main code of the application, and the application must include code that allows it to handle Webhooks. I thought it was a little weird to put the main code of the application in the 'index.py' file in the 'api' folder... but it works for some reason.
@@ -135,7 +138,7 @@ I chose Vercel also since its the only deployment platform that didnt require me
     1. Go to the settings of the application in Telegram Bot's main code in the 'index.py' file, and click on 'Environment variables'. There is a text box titled 'Key' and another text box titiled 'Value'. The 'Key' represent the name of Environment variable and the 'Value' represent the value/data/information of the Environment variable.
 ![Screenshot 2024-08-16 002526](https://github.com/user-attachments/assets/b9bd2c59-25e4-43cd-b6d7-5ea6f084885f)
 
-    2. Lets say we added the 'TOKEN' Environment variable into the text box titled 'Key' and the Telegram Bot's token value/data/information into the text box titled 'Value'. It should show the list of added Environment variables and their corresponding value/data/information below here. Notice that the exact same names of these Environment variables  are used in the Telegram Bot's main code in the 'index.py' file (make sure the Environment variable name manually added in the application in [Vercel](https://vercel.com/) and the main code of the application are the same in order to use it properly!), this is because the Environment variables and their corresponding value/data/information that you manually added in [Vercel](https://vercel.com/) are indeed being read/extracted and used in the Telegram Bot's main code in the 'index.py' file
+    2. Lets say we added the 'TOKEN' Environment variable into the text box titled 'Key' and the Telegram Bot's token value/data/information into the text box titled 'Value'. It should show the list of added Environment variables and their corresponding value/data/information below here. Notice that the exact same names of these Environment variables are used in the Telegram Bot's main code in the 'index.py' file (make sure the Environment variable name manually added in the application in [Vercel](https://vercel.com/) and the main code of the application are the same in order to use it properly!), this is because the Environment variables and their corresponding value/data/information that you manually added in [Vercel](https://vercel.com/) are indeed being read/extracted and used in the Telegram Bot's main code in the 'index.py' file
 ![Screenshot 2024-08-16 002547](https://github.com/user-attachments/assets/366a70eb-33c0-4719-aefb-67c342cfc8c1)
 
     Not super sure why the value/data/information of the Environment variables can't be manually inputted into the main code of the application, but needed to be separated from the main code of the application and be manually added into the application in [Vercel](https://vercel.com/)... but it works.
@@ -145,8 +148,28 @@ I chose Vercel also since its the only deployment platform that didnt require me
 
     Due to my lack of knowledge in deploying applications in [Vercel](https://vercel.com/), I repeatedly copied the full error that showed in the 'Logs' of the application in [Vercel](https://vercel.com/), and asked [ChatGPT](https://chatgpt.com/) to tell me about the error and how to fix them, until I stopped getting errors and the application started to work.
   
-  - What is this command 'curl -X POST "https://api.telegram.org/bot<token>/setWebhook" -d "url=https://example.com"' for? Where do I run it? (that is mentioned in the website blog by Chapi Menge)
-    Idk bro I just ran it somewhere and the code just works alr.... Say since curl is apparently some software I was supposed to download, so I asked chatgpt generate any alternate commands for my Windows laptop and it gave me this:
+  - What is this command 'curl 'https://api.telegram.org/bot<token>/setWebhook?url=https://telegram-bot.vercel.app/webhook' for? Where do I run it? (that is mentioned in the website blog by Chapi Menge)
+    The last thing that we need to do to deploy an application in [Vercel](https://vercel.com/) is to apparently run this command to 'set the Webhook' (idk what exactly this means, but you need to do this step in order to deploy an application in [Vercel](https://vercel.com/)):
+    ```
+    curl https://api.telegram.org/bot<token>/setWebhook?url=https://telegram-bot.vercel.app/webhook
+    ```
+    with '<token>' replaced with the Telegram Bot token.
+ 
+    However, since I am using Windows with Powershell in my VS code, this did not work for me as I had to go through the extra trouble of download the [curl software](https://curl.se/download.html) as well to run this command. So I used [ChatGPT](https://chatgpt.com/) to offer any alternative commands that works for Windows with Powershell in my VS code, in which it suggested I try this command, which works for me:
+    ```
+    $url = "https://api.telegram.org/bot<token>/setWebhook"
+    $body = @{ url = "https://<your-vercel-app-url>/webhook" }
+    Invoke-RestMethod -Method Post -Uri $url -Body $body
+    ```
+    with '<token>' replaced with the Telegram Bot token and '<your-vercel-app-url>' replaced with the URL of the application in [Vercel](https://vercel.com/).
+ 
+    You can tell that the command works if it returns the following message:
+    ```
+    {"ok":true,"result":true,"description":"Webhook was set"}
+    ```
+    
+    According to the website blog by Chapi Menge, you can run this command anywhere, including the terminal and VS code, but running it in VS code worked for me.
+
 
 
 Since originallly as taught in the telegram bot tutorials it uses long polling by default. So when deploying thee telegram bot in Vercel I need to use Webhooks instead. So I just use ChatGPT to help me convert my Telegram Bot using long pollin got use webhook sinsgtead directly (hence I technically have no idea how to convert to the webhook thing myself in the deployment process (using the python libraries FastAPI, Pydantic, os, etc.) (that you will see in the 'index.py' file), I only know how to do the long polling in telegram bot thing, which only works locally, but not in deployment (globally) 
