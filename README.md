@@ -107,7 +107,7 @@ This is a compulsory file, in accordance to the deployment of Telegram Chatbot i
 
 Apparently,the 'requirements.txt' file is a common practice across various deployment platforms in Python, not just for [Vercel](https://vercel.com/). Whether you are deploying your applications on platforms like Heroku, AWS, Streamlit, or others, specifying dependencies in a 'requirements.txt' file allows the platform to understand and install the necessary packages.
 
-Source(s):
+Source(s):  
 https://blog.chapimenge.com/blog/programming/deploying-on-vercel/ (Blog) ('Deploy telegram bot on Vercel(Python)' website blog by Chapi Menge)
 https://www.youtube.com/watch?v=s-Ga8c3toVY&t=336s (Code First with Hala) 
  
@@ -227,7 +227,7 @@ Honestly, the 'Deploy telegram bot on Vercel(Python)' website blog by Chapi Meng
 - Here is the link of my [Vercel](https://vercel.com/) account of the username: 'WindJammer6' - https://vercel.com/windjammer6s-projects
 - Here is the link of this deployed Telegram Bot (named 'Telegram_Chatbot_integrated_with_Chatbase_GPT_model_API') using [Vercel](https://vercel.com/) - https://t.me/test_12173_bot
 
-Source(s):
+Source(s):  
 https://vercel.com/ (Vercel)
 https://vercel.com/blog/what-is-vercel (Vercel Blog)
 https://blog.chapimenge.com/blog/programming/deploying-on-vercel/ (Blog) ('Deploy telegram bot on Vercel(Python)' website blog by Chapi Menge)
