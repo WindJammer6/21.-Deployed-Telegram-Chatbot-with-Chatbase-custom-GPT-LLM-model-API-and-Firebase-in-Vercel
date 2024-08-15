@@ -1,5 +1,7 @@
 # 21.-Deployed-Telegram-Chatbot-integrated-with-Chatbase-custom-GPT-LLM-model-API-and-Firebase <img src="https://logodownload.org/wp-content/uploads/2017/11/telegram-logo-8.png" width="50" height="50"> ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=chatgpt) ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=firebase) ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=vercel)
 
+JUST NEED TO SLOWLY CLEAN UP ALL THE FILES AND UPLOAD THEM HERE!! AND UPDATE WITH THE RELEVANT INFORMATION ABOUT THOSE FILES/FOLDERS!
+
 This is a project done as part of my University's Undergraduate Research Opportunities Programme (UROP), titled **'UROP: Telegram chatbot for novice programmers to learn coding'**, supervised and initiated by Professor Oka Kurniawan ([here](https://github.com/kurniawano) is his Github account), spanding 8 months of (on-off) work.
 
 Here is the description of the UROP project:  
@@ -28,7 +30,7 @@ The approach to developing this UROP project is split into 2 components:
     2. the second 'Database' page where it displays the incoming texts/prompts from students and the Chatbase custom GPT LLM model's responses for the human instructors to evaluate the students' incoming texts/prompts (which the data is retrieved from the database)
 
 *This project's deployed Telegram Bot, Chatbase custom GPT LLM model, Streamlit (Python Framework)'s Website Application and Firebase (API) links:*
-+ https://t.me/test_12171_bot (Telegram Bot named 'Telegram_Chatbot_integrated_with_Chatbase_GPT_model_API') 
++ https://t.me/test_12173_bot (Telegram Bot named 'Telegram_Chatbot_integrated_with_Chatbase_GPT_model_API') 
 + https://www.chatbase.co/dashboard/goh-jet-wei-team-91859289/chatbot/wGS8ehg-39TolweihWY3w (Direct link to this project's Chatbase custom GPT LLM model, but only accessible by me through email)
 + https://22-app-website-for-telegram-chatbot-hezsqgseuns85wxaqsdfpd.streamlit.app/ (Streamlit (Python Framework)'s Website Application)
 + https://console.firebase.google.com/u/0/project/urop-telegram-chatbot/database/urop-telegram-chatbot-default-rtdb/data (Direct link to this project's Firebase (API) Realtime database, but only accessible by me through email)
@@ -41,26 +43,24 @@ Maybe add a how to use section? Saying that the Chatbase API part might require 
 ## Table of Contents
 Here is a directory to explain the purpose of each file in this repository:
 
-1. Files that are required in the creation of the Telegram Chatbot integrated with Chatbase custom GPT LLM model API and Firebase (API)'s Realtime Database:
-  1. '.streamlit' folder  
-     i. 'config.toml' file
-  2. 'README.md' file
-  3. 'firebase_key.json' file
-  4. 'karaoke_singer_class.py' file
-  5. 'requirements.txt' file
+1. Files that are required in the creation of the Telegram Chatbot integrated with Chatbase custom GPT LLM model API and Firebase (API)'s Realtime Database
+    1. 'api' folder  
+        1. 'index.py' file
+    2. 'README.md' file
+    3. 'firebase_key.json' file
+    4. 'requirements.txt' file
+2. Additional files that are not part of the creation of the Telegram Chatbot integrated with Chatbase custom GPT LLM model API and Firebase (API)'s Realtime Database, but includes the past iterations/versions/prototypes of the Telegram Chatbot integrated with Chatbase custom GPT LLM model API and Firebase (API)'s Realtime Database
+    1. telegram bot with openai (ultimately didnt choose to work with it since it exposes the instructors' materials to public, that chatbase managed to achieve fortunately to keep them private)
+    2. telegram bot with chatbase (but no database) (first iteration) (can refer from the deployment one to this one cuz this one uses long polling, but the final uploaded one in index.py uses webhook instead in order to get it to work with vercel for deployment)
+    3. telegram bot with chatbase and mysql (second iteration)
+    4. telegram bot with chatbase and firebase (third iteration)
+3. Additional files that are not part of the creation of the Telegram Chatbot integrated with Chatbase custom GPT LLM model API and Firebase (API)'s Realtime Database, but includes my learning journey of some of the required technology being used in this project that I was not familiar with
+    1. Telegram Bot API (Python Framework) learn folder (uses the test_12171 bot)
+    2. OpenAI API learn folder (uses the test_12172 bot)
+    3. Chatbase API learn folder (uses the test_12173_bot)
+4. Deployment Process of the Telegram Chatbot integrated with Chatbase custom GPT LLM model API and Firebase (API)'s Realtime Database (or any other application) on Vercel
 
-2. Additional files that are not part of the creation of the Telegram Chatbot integrated with Chatbase custom GPT LLM model API and Firebase (API)'s Realtime Database, but includes the past iterations/versions/prototypes of the Telegram Chatbot integrated with Chatbase custom GPT LLM model API and Firebase (API)'s Realtime Database:  
-  1.
 
-
-3. Additional files that are not part of the creation of the Telegram Chatbot integrated with Chatbase custom GPT LLM model API and Firebase (API)'s Realtime Database, but includes my learning journey of some of the required technology being used in this project that I was not familiar with:  
-  1.
-
-4. Deployment Process of the Telegram Chatbot integrated with Chatbase custom GPT LLM model API and Firebase (API)'s Realtime Database (or any other application) on Vercel  
-
-<br>
-
-## 1. Files required in the creation of the Telegram Chatbot integrated with Chatbase custom GPT LLM model API and Firebase (API)'s Realtime Database
 
 <br>
 
@@ -171,7 +171,7 @@ I chose Vercel also since its the only deployment platform that didnt require me
       
 
 Here is the link of my [Vercel](https://vercel.com/) account of the username: 'WindJammer6' - https://vercel.com/windjammer6s-projects.
-Here is the link of this deployed Telegram Bot (named 'Telegram_Chatbot_integrated_with_Chatbase_GPT_model_API') using [Vercel](https://vercel.com/) - https://t.me/test_12171_bot
+Here is the link of this deployed Telegram Bot (named 'Telegram_Chatbot_integrated_with_Chatbase_GPT_model_API') using [Vercel](https://vercel.com/) - https://t.me/test_12173_bot
 
 Source(s):
 https://vercel.com/ (Vercel)
