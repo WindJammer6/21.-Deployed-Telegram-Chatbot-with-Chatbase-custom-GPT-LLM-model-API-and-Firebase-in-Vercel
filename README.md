@@ -12,8 +12,8 @@ The chatbot can be used for any institution that teaches programming.
 '''
 
 This project is made up of 2 Github repositories:  
-- [21.-Deployed-Telegram-Chatbot-integrated-with-Chatbase-custom-GPT-LLM-model-API-and-Firebase](21.-Deployed-Telegram-Chatbot-integrated-with-Chatbase-custom-GPT-LLM-model-API-and-Firebase) (this Github repository) (hosts the code for the Telegram Chatbot integrated with Chatbase custom GPT LLM model API and Firebase (API)'s Realtime Database)
-- Streamlit website (the other repository)
+- [21.-Deployed-Telegram-Chatbot-integrated-with-Chatbase-custom-GPT-LLM-model-API-and-Firebase](https://github.com/WindJammer6/21.-Deployed-Telegram-Chatbot-with-Chatbase-custom-GPT-LLM-model-API-and-Firebase-in-Vercel) (this Github repository) (hosts the code for the Telegram Chatbot integrated with Chatbase custom GPT LLM model API and Firebase (API)'s Realtime Database)
+- [22.-Streamlit-Web-Application-for-Telegram-Chatbot-with-Chatbase-custom-GPT-LLM-model-API-n-Firebase](https://github.com/WindJammer6/22.-Streamlit-Web-Application-for-Telegram-Chatbot-with-Chatbase-custom-GPT-LLM-model-API-n-Firebase) 
 
 This Github repository is hosting the code for the Telegram Chatbot integrated with Chatbase custom GPT LLM model API and Firebase (API)'s Realtime Database.
 
