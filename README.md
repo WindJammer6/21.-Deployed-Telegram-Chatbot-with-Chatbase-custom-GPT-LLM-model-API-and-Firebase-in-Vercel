@@ -224,8 +224,8 @@ Honestly, the 'Deploy telegram bot on Vercel(Python)' website blog by Chapi Meng
     According to the website blog by Chapi Menge, you can run this command anywhere, including the terminal and VS code, but running it in VS code worked for me. 
       
 
-- Here is the link of my [Vercel](https://vercel.com/) account of the username: 'WindJammer6' - https://vercel.com/windjammer6s-projects
-- Here is the link of this deployed Telegram Bot (named 'Telegram_Chatbot_integrated_with_Chatbase_GPT_model_API') using [Vercel](https://vercel.com/) - https://t.me/test_12173_bot
++ Here is the link of my [Vercel](https://vercel.com/) account of the username: 'WindJammer6' - https://vercel.com/windjammer6s-projects
++ Here is the link of this deployed Telegram Bot (named 'Telegram_Chatbot_integrated_with_Chatbase_GPT_model_API') using [Vercel](https://vercel.com/) - https://t.me/test_12173_bot
 
 Source(s):  
 https://vercel.com/ (Vercel)
