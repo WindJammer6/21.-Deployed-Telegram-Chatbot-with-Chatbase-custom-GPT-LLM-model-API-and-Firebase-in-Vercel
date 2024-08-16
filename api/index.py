@@ -1,20 +1,20 @@
-from typing import Dict, Optional
-from pydantic import BaseModel
-from fastapi import FastAPI, Request
-import requests
 import os
 import json
+import requests
+from typing import Optional
+from fastapi import FastAPI, Request
+from pydantic import BaseModel
 from telegram import Update, Bot
 from telegram.ext import Dispatcher, CommandHandler, MessageHandler, Filters
-import firebase_admin
 from firebase_admin import db
+import firebase_admin
 
-# Configuration for Chatbase, Telegram Bot, and Firebase
+# Configuration for Chatbase, Telegram Bot and Firebase
 FIREBASE_DATABASE_URL = os.environ.get('FIREBASE_DATABASE_URL')
 CHATBASE_API_URL = 'https://www.chatbase.co/api/v1/chat'
 CHATBASE_API_KEY = os.environ.get('CHATBASE_API_KEY')
 CHATBASE_CHATBOT_ID = os.environ.get('CHATBASE_CHATBOT_ID')
-TELEGRAM_TOKEN = os.environ.get('TELEGRAM_TOKEN')
+TELEGRAM_TOKEN = os.environ.get('TELEGRAM_TOKEN')  # Make sure to set this in your environment variables
 
 # FastAPI app instance
 app = FastAPI()
@@ -33,34 +33,29 @@ conversation_history = {
     "temperature": 0
 }
 
-# Setting up Firebase
+# Setting up the Firebase database:
 if not firebase_admin._apps:
+    # Initialize Firebase
     credentials_object = firebase_admin.credentials.Certificate("firebase_key.json")
     firebase_admin.initialize_app(credentials_object, {
         'databaseURL': FIREBASE_DATABASE_URL
     })
 
-# Define Pydantic model for validating Telegram webhook data
-class Message(BaseModel):
-    message_id: int
-    from_user: Optional[Dict[str, str]] = None
-    chat: Dict[str, str]
-    date: int
-    text: Optional[str] = None
-
+# Pydantic model for validating Telegram webhook data
 class TelegramWebhook(BaseModel):
     update_id: int
-    message: Optional[Message] = None
-    edited_message: Optional[Message] = None
-    channel_post: Optional[Message] = None
-    edited_channel_post: Optional[Message] = None
-    inline_query: Optional[Dict[str, str]] = None
-    chosen_inline_result: Optional[Dict[str, str]] = None
-    callback_query: Optional[Dict[str, str]] = None
-    shipping_query: Optional[Dict[str, str]] = None
-    pre_checkout_query: Optional[Dict[str, str]] = None
-    poll: Optional[Dict[str, str]] = None
-    poll_answer: Optional[Dict[str, str]] = None
+    message: Optional[dict]
+    edited_message: Optional[dict]
+    channel_post: Optional[dict]
+    edited_channel_post: Optional[dict]
+    inline_query: Optional[dict]
+    chosen_inline_result: Optional[dict]
+    callback_query: Optional[dict]
+    shipping_query: Optional[dict]
+    pre_checkout_query: Optional[dict]
+    poll: Optional[dict]
+    poll_answer: Optional[dict]
+
 
 # Get a reference to the Firebase database
 reference_to_database = db.reference('/')
@@ -68,12 +63,13 @@ reference_to_database = db.reference('/')
 # Read data from the Realtime Database from Firebase
 print(reference_to_database.get())
 
-# Ensure TELEGRAM_TOKEN is correctly retrieved
+
+# Ensure that TELEGRAM_TOKEN is correctly retrieved
 if TELEGRAM_TOKEN is None:
     raise ValueError("TELEGRAM_TOKEN environment variable is not set.")
 
 # Create a Telegram bot instance
-bot = Bot(token=TELEGRAM_TOKEN)
+bot = Bot(token=TELEGRAM_TOKEN)  # Use the environment variable
 
 # Initialize the dispatcher
 dispatcher = Dispatcher(bot, None, workers=4)
@@ -99,5 +95,45 @@ def handle_message(update, context):
     user_message = update.message.text
     conversation_history["messages"].append({"content": user_message, "role": "user"})
 
-    # Make API call to Ch
+    # Make API call to Chatbase
+    response = requests.post(CHATBASE_API_URL, headers=headers, data=json.dumps(conversation_history))
+    json_data = response.json()
 
+    if response.status_code == 200:
+        chatbase_response = json_data['text']
+        update.message.reply_text(f"Chatbase custom GPT model: {chatbase_response}")
+        conversation_history["messages"].append({"content": chatbase_response, "role": "assistant"})
+
+        
+        # ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        # Telegram Chatbot to Firebase's Realtime Database things
+
+        #If confirmation submit button is pressed in the Streamlit (Python) web application, the program will 'push' 
+        #basically add this new pieces of user data into the Realtime database in Firebase    
+        reference_to_database.push({"student_prompt" : update.message.text, "telegram_chatbot_response" : json_data['text']})    
+
+
+        # ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    
+    else:
+        update.message.reply_text(f"Error: {json_data.get('message', 'An error occurred')}")
+
+# Register handlers
+dispatcher.add_handler(CommandHandler('start', start))
+dispatcher.add_handler(CommandHandler('help', help_command))
+dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, handle_message))
+
+@app.post("/webhook")
+async def webhook(request: Request):
+    # Parse the incoming update
+    webhook_data = await request.json()
+    update = Update.de_json(webhook_data, bot)
+    dispatcher.process_update(update)
+    return {"message": "ok"}
+
+@app.get("/")
+def index():
+    return {"message": "Hello World"}
