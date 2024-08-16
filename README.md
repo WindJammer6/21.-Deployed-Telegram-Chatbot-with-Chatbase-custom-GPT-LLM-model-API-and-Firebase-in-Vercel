@@ -199,7 +199,8 @@ Honestly, the 'Deploy telegram bot on Vercel(Python)' website blog by Chapi Meng
 
     Not super sure why the value/data/information of the Environment variables can't be manually inputted into the main code of the application, but needed to be separated from the main code of the application and be manually added into the application in [Vercel](https://vercel.com/)... but it works.
     
-  - I got the error 'The Serverless Function has crashed' in [Vercel](https://vercel.com/). What does it mean and what do I do?  
+  - I got the error 'The Serverless Function has crashed' in [Vercel](https://vercel.com/). What does it mean and what do I do?
+    ![Screenshot 2024-08-14 024015](https://github.com/user-attachments/assets/331cd37c-6ba0-4fb8-803d-381029442f7e)  
     It means there is some issue with the main code of the application. You can check the 'Logs' of the application in [Vercel](https://vercel.com/) to see the full error.
 
     Due to my lack of knowledge in deploying applications in [Vercel](https://vercel.com/), I repeatedly copied the full error that showed in the 'Logs' of the application in [Vercel](https://vercel.com/), and asked [ChatGPT](https://chatgpt.com/) to tell me about the error and how to fix them, until I stopped getting errors and the application started to work.
