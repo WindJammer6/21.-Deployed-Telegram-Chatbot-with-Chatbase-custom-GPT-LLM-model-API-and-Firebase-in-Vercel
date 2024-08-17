@@ -2,6 +2,8 @@
 
 JUST NEED TO SLOWLY CLEAN UP ALL THE FILES AND UPLOAD THEM HERE!! AND UPDATE WITH THE RELEVANT INFORMATION ABOUT THOSE FILES/FOLDERS!
 
+maybe put pic of the Telegram bot, chatbase, firebase
+
 This is a project done as part of my University's Undergraduate Research Opportunities Programme (UROP), titled **'UROP: Telegram chatbot for novice programmers to learn coding'**, supervised and initiated by Professor Oka Kurniawan ([here](https://github.com/kurniawano) is his Github account), spanding 8 months of (on-off) work.
 
 Here is the description of the UROP project:  
