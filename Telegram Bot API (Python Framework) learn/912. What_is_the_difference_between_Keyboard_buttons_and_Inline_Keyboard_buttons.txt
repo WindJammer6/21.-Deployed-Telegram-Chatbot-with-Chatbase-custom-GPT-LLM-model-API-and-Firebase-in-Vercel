@@ -1,0 +1,38 @@
+Following this Youtube video by Code with Ibrahim: https://www.youtube.com/watch?v=Agkf4hEprwE&t=673s
+(Youtube video by Code with Ibrahim, titled 'Python Telegram Bot with Custom Keyboard, Buttons, and 
+Images')
+
+
+///////////////////////////////////////////////////////////////////////////
+
+
+What is the difference between Reply Keyboard buttons and Inline Keyboard buttons in a Telegram Bot?
+In the '910. telegram's_KeyboardButton_class_and_ReplyKeyboardMarkup_class.py' file and '911. telegram's_
+InlineKeyboardButton_class_and_InlineKeyboardMarkup_class_and_mapping_the_self-made_Python_functions_to_
+CallbackQueryHandler.py' file, we have implemented Reply Keyboard buttons and Inline Keyboard buttons 
+respectively in a Telegram Bot. But what is the difference between there two features?
+
+Both Reply Keyboard buttons and Inline Keyboard buttons are used to provide users with a set of 
+predefined buttons, but they serve different purposes and have distinct behaviors:
+1. Reply Keyboard
+    - Appearance: The Reply Keyboard appears as a custom keyboard attached to the text input field. 
+                It looks similar to the default on-screen keyboard but with custom buttons.
+    
+    - Behavior: When a user taps a button on the Reply Keyboard, the button's label is sent as a 
+                regular reply message from the user to the Telegram Bot. The Reply Keyboard remains 
+                visible until it is manually removed by the Telegram Bot or replaced by a new keyboard.
+    
+    - Use Cases: It's useful when you want to suggest input options to users, such as answering 
+                questions with "Yes," "No," or "Maybe."
+
+2. Inline Keyboard
+    - Appearance: The Inline Keyboard appears directly inside the message bubble, with buttons positioned 
+                below the message text.
+
+    - Behavior: When a user taps a button on the Inline Keyboard, it does not send a message from the user. 
+                Instead, it triggers a callback query that is sent to the Telegram Bot, which can handle it without 
+                cluttering the chat with messages. Inline Keyboard buttons can be configured to trigger URLs, 
+                switch to inline mode, or send callback data to the Telegram Bot.
+
+    - Use Cases: Ideal for creating interactive interfaces within a single message, such as navigating 
+                through options, triggering actions, or opening links.
