@@ -1,0 +1,24 @@
+What is Telegram Bot API?
+Telegram Bot API (Application Programming Interface) allows developers to create bots that interact with 
+users on the Telegram messaging platform. 
+
+Telegram Bot API documentation link: https://docs.python-telegram-bot.org/en/v21.1.1/
+
+
+Here are the sources of this folder, 'Telegram Bot API (Python Framework) learn':
+For '1. What_is_Telegram_Bot_API_(Python_Framework).txt' file to 
+'8. mapping_the_self-made_Python_functions_to_CommandHandler.py' file,
+- https://www.youtube.com/watch?v=227uk4kDTM8 (Youtube video by Simplilearn, titled: 
+  'How To Create A Telegram Bot Using Python? | Telegram Bot In Python Tutorial | Python | Simplilearn')
+
+For '9. mapping_the_self-made_Python_functions_to_MessageHandler.py' file,
+- https://www.youtube.com/watch?v=Agkf4hEprwE&t=673s (Youtube video by PW Skills Tech, titled: 
+  'How To Create Telegram Bot Using Python | Python Project Complete Tutorial')
+
+For '910. telegram's_KeyboardButton_class_and_ReplyKeyboardMarkup_class.py' file to 
+'912. What_is_the_difference_between_Keyboard_buttons_and_Inline_Keyboard_buttons.txt' file,
+- https://www.youtube.com/watch?v=Agkf4hEprwE&t=673s (Youtube video by Code with Ibrahim, titled:
+  'Python Telegram Bot with Custom Keyboard, Buttons, and Images')
+
+For '913. creating_a_Telegram_Bot_workflow.py' file,
+- https://chatgpt.com/ (ChatGPT)

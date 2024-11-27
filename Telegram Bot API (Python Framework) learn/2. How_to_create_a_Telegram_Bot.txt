@@ -1,0 +1,72 @@
+Following this Youtube video by Simplilearn: https://www.youtube.com/watch?v=227uk4kDTM8 (Youtube video
+by Simplilearn, tiitled 'How To Create A Telegram Bot Using Python? | Telegram Bot In Python 
+Tutorial | Python | Simplilearn/')
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+
+
+How to create a Telegram Bot?
+You create a Telegram Bot not directly from the Telegram Bot API (Python Framework) in code in your IDE. 
+Rather, you create a Telegram Bot on the Telegram messaging platform on your device seperately. Here's how to 
+do it:
+
+    1. Go to the Telegram messaging platform.
+    
+    2. On the search chats/channels bar, search and click on 'BotFather' (be careful to select the verified
+       'BotFather' Telegram Bot with the blue tick)
+       (Note: 'BotFather' is itself a Telegram Bot that Telegram has created to automate the creation of 
+              all other Telegram Bots by developers)
+
+    3. In the conversation with 'BotFather' here are the series of commands you need to provide to create
+       a. Enter the command '/newbot'. 
+          - You should get the reply from 'BotFather': 'Alright, a new bot. How are we going to call it? Please 
+            choose a name for your bot.'
+       
+       b. Enter the desired name for the Telegram Bot, e.g. 'test'. 
+          - You should get the reply from 'BotFather': 'Good. Now let's choose a username for your bot. It must 
+            end in `bot`. Like this, for example: TetrisBot or tetris_bot.'
+
+       c. Choose a unique username for the Telegram Bot, and it should end with 'Bot' or '_bot', 
+          e.g. 'test_12171_bot'.
+          - If the name is already taken, you will get the reply from 'BotFather': 'Sorry, this username is 
+            already taken. Please try something different.' 
+          - Otherwise if name is not already taken, you will get the reply from 'BotFather': 
+            'Done! Congratulations on your new bot. You will find it at t.me/sample1217_bot. You can now add a 
+            description, about section and profile picture for your bot, see /help for a list of commands. By 
+            the way, when you've finished creating your cool bot, ping our Bot Support if you want a better 
+            username for it. Just make sure the bot is fully operational before you do this.
+
+            Use this token to access the HTTP API:
+            **********************************************
+            
+            Keep your token secure and store it safely, it can be used by anyone to control your bot.
+
+            For a description of the Bot API, see this page: https://core.telegram.org/bots/api'
+
+       d. Enter the command '/setprivacy'. We will want to set the privacy status of the Telegram Bot to 
+          private so no one can misuse your Telegram Bot token and keep your Telegram Bot secure.
+          - You should get the reply from 'BotFather': 'Choose a bot to change group messages settings.'
+
+       e. A dashboard will appear showing all of your Telegram Bots. Select the recently created Telegram 
+          Bot (e.g. 'test_12171_bot')
+          - You should get the reply from 'BotFather': 
+            ''Enable' - your bot will only receive messages that either start with the '/' symbol or mention 
+            the bot by username.
+            
+            'Disable' - your bot will receive all messages that people send to groups.
+            
+            Current status is: ENABLED.'
+
+       f. Another dashboard will appear showing the 'Enable' and 'Disable' options. Select 'Disable' to make
+          your Telegram Bot's privacy to private.
+          - You should get the reply from 'BotFather': 'Success! The new status is: DISABLED. /help'
+
+
+(Note: Take note of the HTTP API token/key of the Telegram Bot! You will need it in order to access that 
+       particular Telegram Bot in the Telegram Bot API (Python Framework) in code in your IDE!!!)
+
+
+
+
