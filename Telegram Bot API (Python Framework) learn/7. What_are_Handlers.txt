@@ -1,0 +1,109 @@
+What are Handlers (In the context of the 'telegram.ext' Telegram Bot API Python Framework)?
+In the context of the 'telegram.ext' Telegram Bot API Python Framework, Handlers are class instance/objects 
+that you can add to the 'Dispatcher' class instance/object of the Telegram Bot (which routes incoming 
+updates (e.g. texts, commands) from users/other Telegram Bots from the Telegram messaging platform server
+to the appropriate Handler based on the type of update received) that define how the Telegram Bot 
+should respond to updates.
+
+Different kinds of Handlers will handle different types of updates.
+
+Here is a non-exhaustive list of the available Handlers in the 'telegram.ext' Telegram Bot API Python 
+Framework:
+1. CommandHandler: Handles commands sent by users.
+    ```
+    from telegram.ext import CommandHandler, Updater
+
+    def start(update, context):
+        update.message.reply_text("Hello!")
+
+    updater = Updater("TOKEN", use_context=True)
+    dispatcher = updater.dispatcher
+    dispatcher.add_handler(CommandHandler("start", start))
+    ```
+
+2. MessageHandler: Handles normal text messages sent by users.
+    ```
+    from telegram.ext import MessageHandler, Filters, Updater
+
+    def echo(update, context):
+        update.message.reply_text(update.message.text)
+
+    updater = Updater("TOKEN", use_context=True)
+    dispatcher = updater.dispatcher
+    dispatcher.add_handler(MessageHandler(Filters.text, echo))
+    ```
+
+3. CallbackQueryHandler: Handles callbacks from inline keyboards.
+    ```
+from telegram.ext import CallbackQueryHandler, Updater
+
+    def button(update, context):
+        query = update.callback_query
+        query.answer()
+        query.edit_message_text(text="Button clicked!")
+
+    updater = Updater("TOKEN", use_context=True)
+    dispatcher = updater.dispatcher
+    dispatcher.add_handler(CallbackQueryHandler(button))
+    ```
+
+4. InlineQueryHandler: Handles inline queries from users.
+    ```
+    from telegram.ext import InlineQueryHandler, Updater
+
+    def inlinequery(update, context):
+        query = update.inline_query.query
+        results = [update.inline_query.answer("Hello!")]
+        update.inline_query.answer(results)
+
+    updater = Updater("TOKEN", use_context=True)
+    dispatcher = updater.dispatcher
+    dispatcher.add_handler(InlineQueryHandler(inlinequery))
+    ```
+
+5. ChosenInlineResultHandler: Handles chosen inline results.
+    ```
+    from telegram.ext import ChosenInlineResultHandler, Updater
+
+    def chosen_inline_result(update, context):
+        result = update.chosen_inline_result
+        context.bot.send_message(
+            chat_id = update.effective_chat.id,
+            text=f"Chosen result for query '{result.query}':\n"
+                f"Result ID: {result.result_id}\n"
+                f"Inline message ID: {result.inline_message_id}\n"
+                f"User: {result.from_user.first_name} {result.from_user.last_name} (@{result.from_user.username})"
+        )
+
+    updater = Updater("TOKEN", use_context=True)
+    updater.dispatcher.add_handler(ChosenInlineResultHandler(chosen_inline_result))
+    ```
+
+6. PollAnswerHandler: Handles poll answers.
+    ```
+    from telegram.ext import PollAnswerHandler, Updater
+
+    def poll_answer(update, context):
+        poll_id = update.poll_answer.poll_id
+        chosen_options = update.poll_answer.option_ids
+        context.bot.send_message(chat_id=update.effective_chat.id, text=f"Poll ID: {poll_id}, Chosen options: {chosen_options}")
+
+    updater = Updater("TOKEN", use_context=True)
+    dispatcher = updater.dispatcher
+    dispatcher.add_handler(PollAnswerHandler(poll_answer))
+    ```
+
+7. PollHandler: Handles polls.
+    ```
+    from telegram.ext import PollHandler, Updater
+
+    def new_poll(update, context):
+        poll = update.poll
+        context.bot.send_message(chat_id=update.effective_chat.id, text=f"New poll received: {poll}")
+
+    updater = Updater("TOKEN", use_context=True)
+    dispatcher = updater.dispatcher
+    dispatcher.add_handler(PollHandler(new_poll))
+    ```
+
+etc.
