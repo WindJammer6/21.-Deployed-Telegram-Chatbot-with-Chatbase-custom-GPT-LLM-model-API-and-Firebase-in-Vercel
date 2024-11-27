@@ -1,4 +1,4 @@
-# 21.-Deployed-Telegram-Chatbot-with-Chatbase-custom-GPT-LLM-model-API-and-Firebase-in-Vercel <img src="https://logodownload.org/wp-content/uploads/2017/11/telegram-logo-8.png" width="50" height="50"> ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=chatgpt) ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=firebase) ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=vercel)
+# 21.-Deployed-Telegram-Chatbot-with-Chatbase-custom-GPT-LLM-model-API-and-Firebase-in-Vercel <img src="https://logodownload.org/wp-content/uploads/2017/11/telegram-logo-8.png" width="50" height="50"> <img src="https://images-websitehunt.s3.amazonaws.com/website/47308b29-54f5-4e48-a739-573a26f9a414.png" width="50" height="50"> ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=chatgpt) ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=firebase) ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=vercel)
 
 JUST NEED TO SLOWLY CLEAN UP ALL THE FILES AND UPLOAD THEM HERE!! AND UPDATE WITH THE RELEVANT INFORMATION ABOUT THOSE FILES/FOLDERS!
 
