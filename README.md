@@ -1,7 +1,5 @@
 # 21.-Deployed-Telegram-Chatbot-with-Chatbase-custom-GPT-LLM-model-API-and-Firebase-in-Vercel <img src="https://logodownload.org/wp-content/uploads/2017/11/telegram-logo-8.png" width="50" height="50"> <img src="https://images-websitehunt.s3.amazonaws.com/website/47308b29-54f5-4e48-a739-573a26f9a414.png" width="50" height="50"> ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=chatgpt) ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=firebase) ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=vercel)
 
-JUST NEED TO SLOWLY CLEAN UP ALL THE FILES AND UPLOAD THEM HERE!! AND UPDATE WITH THE RELEVANT INFORMATION ABOUT THOSE FILES/FOLDERS!
-
 maybe put pic of the Telegram bot, chatbase, firebase
 
 This is a project done as part of my University's Undergraduate Research Opportunities Programme (UROP), titled **'UROP: Telegram chatbot for novice programmers to learn coding'**, supervised and initiated by Professor Oka Kurniawan ([here](https://github.com/kurniawano) is his Github account), spanding 8 months of (on-off) work.
@@ -35,7 +33,8 @@ The approach to developing this UROP project is split into 2 components:
 + https://t.me/test_12173_bot (Telegram Bot named 'Telegram_Chatbot_integrated_with_Chatbase_GPT_model_API') 
 + https://www.chatbase.co/dashboard/goh-jet-wei-team-91859289/chatbot/wGS8ehg-39TolweihWY3w (Direct link to this project's Chatbase custom GPT LLM model, but only accessible by me through email)
 + https://22-app-website-for-telegram-chatbot-hezsqgseuns85wxaqsdfpd.streamlit.app/ (Streamlit (Python Framework)'s Website Application)
-+ https://console.firebase.google.com/u/0/project/urop-telegram-chatbot/database/urop-telegram-chatbot-default-rtdb/data (Direct link to this project's Firebase (API) Realtime database, but only accessible by me through email)
++ https://console.firebase.google.com/u/0/project/urop-telegram-chatbot/database/urop-telegram-chatbot-default-rtdb/data (Direct link to this project's Firebase (API) Realtime database storing the student's conversations with the Telegram Chatbot, but only accessible by me through email)
++ https://console.firebase.google.com/project/urop-chatbot-assignments/database/urop-chatbot-assignments-default-rtdb/data (Direct link to this project's Firebase (API) Realtime database storing the course assignments, but only accessible by me through email)
 
 
 Maybe add a how to use section? Saying that the Chatbase API part might require money to get access to the API key... and hence otherwise cannot be used??
