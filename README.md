@@ -97,6 +97,9 @@ The 'README.md' file.
 ```
 This file represents the authetication key. Apparently, when accessing to APIs (such as the Firebase API), you will need to have a sort of, authentication key, which is what this file is to ensure that only authorized users can access the API. Refer to this video to understand how the Firebase API authentication key is used with your Python code: https://www.youtube.com/watch?v=s-Ga8c3toVY&t=336s (Code First with Hala) 
 
+
+show that the firebase api key is this format, but need convert to a straight line with no backslash n to put in the secrets of the streamlit cloud to hide it since secrets cannot have the backslash n thing format
+
 <br>
 
 **4. 'requirements.txt' file**
@@ -122,6 +125,8 @@ Telegram_bot.py is not required and is just merely for local running as long pol
 
 *Why did I choose Firebase's Realtime Database instead of MySQL databases?*  
 With my recently learnt knowledge of MySQL, I wanted to try using MySQL databases in this project. However, I realised that many of the database hosting platforms such as [Azure Database](https://azure.microsoft.com/en-us/products/category/databases/) and [Amazon Web Services](https://aws.amazon.com/) require your billing information in order to start hosting MySQL databases on them. I did not want to take the risk of being overcharged as I will most likely not maintain my built application since I only created them for education purposes and not for production. Hence, I decided to use [Firebase's Relational/NoSQL realtime database](https://firebase.google.com/) instead since it is the only database hosting platform that did not require billing information.
+
+show the Telegram Bot used for each iteration and the link (but don't show API key)
 
 
 - Here is the link of this deployed Telegram Bot (named 'Telegram_Chatbot_integrated_with_Chatbase_GPT_model_API') using [Vercel](https://vercel.com/) - https://t.me/test_12173_bot
